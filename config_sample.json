@@ -1,0 +1,15 @@
+{
+  "dns": {
+     "dns-1": {
+        "user": "ovh assigned username for dyndns",
+        "pass": "ovh assigned pass for dyndns",
+        "delay": a_delay_for_check_in_seconds,
+        "lastIp": "0",
+        "lastChanged": "0",
+        "dns": "the target dns"
+     }
+   },
+  "appConfig": {
+    "rawIpUrl": "http://ip.42.pl/raw"
+  }
+}
