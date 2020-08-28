@@ -89,9 +89,13 @@ async def main():
             configRead = json.load(configFile)
 
         for dnsNbs in configRead["dns"]:
-            dns = configRead["dns"][dnsNbs]["dns"]
-            print(f"{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} | {dnsNbs} : {dns} -> loaded")
-            logging.info(f"{dnsNbs} : {dns} loaded")
+            hostname = configRead["dns"][dnsNbs]["dns"]
+            hostUserName = configRead["dns"][dnsNbs]["user"]
+            hostPass = configRead["dns"][dnsNbs]["pass"]
+            delay = configRead["dns"][dnsNbs]["delay"]
+            print(f"{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} | {dnsNbs} : {hostname} -> loaded")
+            logging.info(f"{dnsNbs} : {hostname} loaded")
+            asyncio.ensure_future(updateLoop(hostUserName, hostPass, hostname, delay))
 
 
 if __name__ == "__main__":
